@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio AI - Klasifikasi Gambar Lokal</title>
+    <script src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between antialiased">
+
+    <header class="bg-white border-b border-slate-200 py-4 px-6 shadow-xs">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold text-indigo-600 tracking-tight">AI.Portofolio</h1>
+            <span class="text-xs bg-indigo-50 text-indigo-700 font-semibold px-3 py-1 rounded-full border border-indigo-200">Client-Side AI</span>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-xl w-full mx-auto px-4 py-10">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8">
+            
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-extrabold text-slate-950 mb-2">Klasifikasi Gambar Cerdas</h2>
+                <p class="text-sm text-slate-500 leading-relaxed">
+                    Aplikasi ini mendeteksi objek dalam foto secara instan. Menggunakan model <span class="font-semibold text-slate-700">MobileNetV2 (13 MB)</span> yang berjalan langsung di browser tanpa server pihak ketiga.
+                </p>
+            </div>
+
+            <div class="mb-6">
+                <input type="file" id="upload-gbr" accept="image/*" class="hidden">
+                
+                <div id="drop-zone" onclick="document.getElementById('upload-gbr').click()" class="border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-xl p-8 text-center cursor-pointer transition bg-slate-50 hover:bg-indigo-50/30 group">
+                    <div id="upload-prompt" class="space-y-2">
+                        <div class="text-4xl group-hover:scale-110 transition duration-200">📸</div>
+                        <p class="text-sm font-medium text-slate-700">Klik untuk unggah atau seret gambar ke sini</p>
+                        <p class="text-xs text-slate-400">Mendukung format PNG, JPG, atau WebP</p>
+                    </div>
+                    <img id="preview" alt="Pratinjau Gambar" class="hidden max-h-64 mx-auto rounded-lg shadow-sm border border-slate-200">
+                </div>
+            </div>
+
+            <div id="status" class="text-center text-sm font-medium text-amber-600 bg-amber-50 border border-amber-200 rounded-lg py-2.5 px-4 mb-6 animate-pulse">
+                Mengunduh core sistem...
+            </div>
+
+            <!-- Tombol Aksi -->
+            <button id="btn-proses" disabled class="w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-200 text-white disabled:text-slate-400 font-semibold py-3 px-4 rounded-xl transition shadow-md disabled:shadow-none cursor-pointer disabled:cursor-not-allowed text-center">
+                Analisis Gambar
+            </button>
+
+            <div id="wrapper-hasil" class="mt-8 hidden">
+                <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Hasil Prediksi AI</h3>
+                <div id="hasil" class="space-y-3 bg-slate-900 rounded-xl p-5 text-sm font-mono text-emerald-400 shadow-inner overflow-x-auto">
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-6 border-t border-slate-200 text-xs text-slate-400">
+        &copy; 2026 Proyek Portofolio AI Ringan &bull; Dibuat dengan Transformers.js & Vercel
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
