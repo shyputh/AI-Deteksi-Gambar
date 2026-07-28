@@ -74,3 +74,6 @@ btnProses.addEventListener('click', async function() {
 });
 
 initAI();
+
+
+/// deifefhowfho
