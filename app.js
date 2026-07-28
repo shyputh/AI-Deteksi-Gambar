@@ -1,4 +1,4 @@
-import { pipeline } from 'https://jsdelivr.net';
+import { pipeline } from 'https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0';
 
 let classifier;
 const statusEl = document.getElementById('status');
@@ -14,7 +14,7 @@ async function initAI() {
         statusEl.className = "text-center text-sm font-medium text-indigo-600 bg-indigo-50 border border-indigo-200 rounded-lg py-2.5 px-4 mb-6 animate-pulse";
         statusEl.innerText = "Memuat model AI (Sangat ringan, ±13 MB)...";
         
-        classifier = await pipeline('image-classification', 'Xenova/mobilenetv2_1.0_224');
+        classifier = await pipeline('image-classification', 'onnx-community/mobilenet_v2_1.0_224');
         
         statusEl.className = "text-center text-sm font-medium text-emerald-600 bg-emerald-50 border border-emerald-200 rounded-lg py-2.5 px-4 mb-6";
         statusEl.innerText = "Sistem Siap! Silakan unggah foto Anda.";
@@ -68,11 +68,9 @@ btnProses.addEventListener('click', async function() {
     } catch (error) {
         statusEl.innerText = "Terjadi kesalahan saat memproses gambar.";
         console.error(error);
-    } {
+    } finally {
         btnProses.disabled = false;
     }
 });
 
 initAI();
-
-
